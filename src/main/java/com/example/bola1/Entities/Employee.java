@@ -13,6 +13,8 @@ import org.hibernate.annotations.Cascade;
 @NoArgsConstructor
 @Getter
 @Setter
+
+
 public class Employee {
 
     @Id
@@ -24,4 +26,6 @@ public class Employee {
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "address_id",referencedColumnName = "addressId")
     private Address address;
+
+
 }

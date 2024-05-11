@@ -27,10 +27,10 @@ public class DemoController {
     public void hello()
     {
         Employee employee=new Employee();
-        employee.setEmployeeName("raki");
+        employee.setEmployeeName("varun");
 
         Address address=new Address();
-        address.setAddress("nagarbhavi");
+        address.setAddress("wade rama");
 
         address.setEmployee(employee);
         employee.setAddress(address);
@@ -40,6 +40,7 @@ public class DemoController {
 
         addEmp.save(address);
 
+        Employee employee1=empRepo.getReferenceById(652);
 
 
     }

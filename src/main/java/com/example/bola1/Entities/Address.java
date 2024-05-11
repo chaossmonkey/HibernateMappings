@@ -25,4 +25,5 @@ public class Address {
     @JoinColumn(name = "emp_id",referencedColumnName = "employeeId")
     private Employee employee;
 
+
 }
