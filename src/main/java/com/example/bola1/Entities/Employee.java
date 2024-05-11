@@ -8,12 +8,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.Cascade;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-
 
 public class Employee {
 
@@ -27,5 +29,8 @@ public class Employee {
     @JoinColumn(name = "address_id",referencedColumnName = "addressId")
     private Address address;
 
+
+    @OneToMany(cascade = CascadeType.PERSIST,mappedBy = "employee",fetch = FetchType.EAGER)
+    private List<Task> taskList;
 
 }

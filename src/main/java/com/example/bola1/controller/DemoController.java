@@ -2,11 +2,15 @@ package com.example.bola1.controller;
 
 import com.example.bola1.Entities.Address;
 import com.example.bola1.Entities.Employee;
+import com.example.bola1.Entities.Task;
 import com.example.bola1.repo.AddEmp;
 import com.example.bola1.repo.EmpRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 public class DemoController {
@@ -26,21 +30,33 @@ public class DemoController {
     @GetMapping("/hi")
     public void hello()
     {
-        Employee employee=new Employee();
-        employee.setEmployeeName("varun");
 
-        Address address=new Address();
-        address.setAddress("wade rama");
+        Employee employee = new Employee();
+        employee.setEmployeeName("GANU");
 
-        address.setEmployee(employee);
+        Address address = new Address();
+        address.setAddress("Magadi");
+
         employee.setAddress(address);
+        address.setEmployee(employee);
+
+        Task task = new Task();
+        task.setTaskName("fast driving");
+        task.setEmployee(employee);
+
+        Task task1 = new Task();
+        task1.setTaskName("body building");
+        task1.setEmployee(employee);
+
+        List<Task> taskList = new ArrayList<>();
+        taskList.add(task1);
+        taskList.add(task);
 
 
+        employee.setTaskList(taskList);
 
+        empRepo.save(employee);
 
-        addEmp.save(address);
-
-        Employee employee1=empRepo.getReferenceById(652);
 
 
     }
