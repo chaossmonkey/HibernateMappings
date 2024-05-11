@@ -33,4 +33,10 @@ public class Employee {
     @OneToMany(cascade = CascadeType.PERSIST,mappedBy = "employee",fetch = FetchType.EAGER)
     private List<Task> taskList;
 
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "misson_employee",
+    joinColumns = @JoinColumn(name = "emp_id"),
+    inverseJoinColumns = @JoinColumn(name = "mission_id"))
+    private List<Mission> missionList;
+
 }

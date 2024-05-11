@@ -2,6 +2,7 @@ package com.example.bola1.controller;
 
 import com.example.bola1.Entities.Address;
 import com.example.bola1.Entities.Employee;
+import com.example.bola1.Entities.Mission;
 import com.example.bola1.Entities.Task;
 import com.example.bola1.repo.AddEmp;
 import com.example.bola1.repo.EmpRepo;
@@ -51,6 +52,23 @@ public class DemoController {
         List<Task> taskList = new ArrayList<>();
         taskList.add(task1);
         taskList.add(task);
+
+        List<Employee> employeeList = new ArrayList<>();
+        employeeList.add(employee);
+
+        Mission mission = new Mission();
+        mission.setEmployeeList(employeeList);
+        mission.setMissionName("rash driving");
+
+        Mission mission1 = new Mission();
+        mission1.setEmployeeList(employeeList);
+        mission.setMissionName("great donkey");
+
+        List<Mission> missionList = new ArrayList<>();
+        missionList.add(mission1);
+        missionList.add(mission);
+
+        employee.setMissionList(missionList);
 
 
         employee.setTaskList(taskList);
